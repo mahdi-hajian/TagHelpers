@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppTagHelper", "WebAppTagHelper\WebAppTagHelper.csproj", "{2CF9D065-5614-471E-ACE2-B77C200AF8FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagHelpersLib", "TagHelpersLib\TagHelpersLib.csproj", "{F9FAFBFF-32C3-42A4-A7B9-24298D63858D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2CF9D065-5614-471E-ACE2-B77C200AF8FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CF9D065-5614-471E-ACE2-B77C200AF8FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CF9D065-5614-471E-ACE2-B77C200AF8FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9FAFBFF-32C3-42A4-A7B9-24298D63858D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9FAFBFF-32C3-42A4-A7B9-24298D63858D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9FAFBFF-32C3-42A4-A7B9-24298D63858D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9FAFBFF-32C3-42A4-A7B9-24298D63858D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

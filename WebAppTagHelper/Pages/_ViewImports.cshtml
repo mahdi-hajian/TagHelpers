@@ -1,4 +1,10 @@
-@using WebAppTagHelper
+﻿@using WebAppTagHelper
 @namespace WebAppTagHelper.Pages
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@addTagHelper *, WebAppTagHelper
+
+@*اضافه کردن اسمبلی که تک هلپر ها داخلشه*@
+@addTagHelper TagHelpersLib.TagHelpers.Public*, TagHelpersLib
+@addTagHelper TagHelpersLib.TagHelpers.Client*, TagHelpersLib
+
+@*پیش تگ*@
+@tagHelperPrefix "client-"

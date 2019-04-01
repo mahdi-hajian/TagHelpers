@@ -14,7 +14,7 @@
 
 
   <ItemGroup>
-    <Folder Include="TagHelpers\" />
+    <ProjectReference Include="..\TagHelpersLib\TagHelpersLib.csproj" />
   </ItemGroup>
 
 </Project>

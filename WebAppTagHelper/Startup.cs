@@ -49,6 +49,8 @@ namespace WebAppTagHelper
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            //app.UseHttpsRedirection();
+
             app.UseMvc();
         }
     }

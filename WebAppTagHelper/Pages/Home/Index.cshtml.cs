@@ -7,17 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using TagHelpersLib.model;
 using Dapper;
-using System.Data;
 using System.Data.SqlClient;
-using System.ComponentModel.DataAnnotations;
+using System.Data;
 
-namespace WebAppTagHelper.Pages
+namespace WebAppTagHelper.Pages.Home
 {
     public class IndexModel : PageModel
     {
-        [BindProperty]
-        public List<person> Persons { get; set; }
-
         [BindProperty]
         public person Person { get; set; }
 
@@ -27,7 +23,7 @@ namespace WebAppTagHelper.Pages
         {
             using (IDbConnection db = new SqlConnection(Connection))
             {
-                Persons = db.Query<person>("select * from Person").ToList();
+                //var Persons = db.Query<person>("select * from Person").ToList();
 
                 //person = db.Query<person>("select * from Person where Id=@Id", new {Id = 1 }).SingleOrDefault();
 
@@ -48,10 +44,6 @@ namespace WebAppTagHelper.Pages
                     string query = "insert into Person (Name,Family) values (@Name,@Family)";
                     await db.ExecuteAsync(query, Person);
                 }
-            }
-            using (IDbConnection db = new SqlConnection(Connection))
-            {
-                Persons = db.Query<person>("select * from Person").ToList();
             }
         }
     }

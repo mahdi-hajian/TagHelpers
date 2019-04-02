@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Razor.Runtime.TagHelpers;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using TagHelpersLib.model;
+using Dapper;
+using System.Data.SqlClient;
 
 namespace TagHelpersLib.TagHelpers.Public
 {
@@ -13,14 +13,57 @@ namespace TagHelpersLib.TagHelpers.Public
     [HtmlTargetElement("my-customer")]
     public class MyCustomerTagHelper : TagHelper
     {
-        public person person { get; set; }
         public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
-            string path = @"E:\MyProject\WebAppTagHelper\WebAppTagHelper\wwwroot\Template\HTMLPage1.html";
-            StreamReader streamReader = new StreamReader(path);
-            string content = await streamReader.ReadToEndAsync();
-            content = content.Replace("[name]", person.Name).Replace("[family]",person.Family);
+            // add a attribute
+            TagHelperAttribute tagHelper = new TagHelperAttribute("class", "highlight");
+            output.Attributes.Add(tagHelper);
+
+            // find a attribute
+            var AttributesId = output.Attributes.Where(c => c.Name == "id" && c.Value.ToString() == "CustomerId").FirstOrDefault();
+            // remove a attribute
+            if (AttributesId != null)
+                output.Attributes.Remove(AttributesId);
+
+            // change tag name from my-customer to div
+            //output.TagName = "div";
+
+            output.TagMode = TagMode.StartTagAndEndTag;
+
+            // خود تگ my-customer حذف میشود ولی داخلش هست
+            //output.SuppressOutput();
+
+            // clear all attribute
+            output.Attributes.Clear();
+
+            var data = await GetPersonsAsync();
+
+            string content = "";
+            foreach (var item in data)
+            {
+                content += $@"<div><label>name:</label>
+<label>{item.Name}</label>
+<br />
+<label>family:</label>
+<label>{item.Family}</label>
+</div>
+<hr />";
+            }
+
             output.Content.SetHtmlContent(content);
+        }
+
+
+        public async Task<List<person>> GetPersonsAsync()
+        {
+            var Persons = new List<person>();
+            using (System.Data.IDbConnection db = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Dapper_test"))
+            {
+                var data = await db.QueryAsync<person>("select * from Person");
+                Persons = data.ToList();
+            }
+
+            return Persons;
         }
     }
 }

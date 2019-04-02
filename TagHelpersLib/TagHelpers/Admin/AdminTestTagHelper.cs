@@ -14,7 +14,7 @@ namespace TagHelpersLib.TagHelpers.Admin
         public int number { get; set; }
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            output.Content.SetHtmlContent("no no no no: "+ number);
+            output.Content.SetHtmlContent("i am my-admin tag and number is: "+ number);
         }
     }
 }

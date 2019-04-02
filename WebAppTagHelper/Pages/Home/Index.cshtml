@@ -1,0 +1,23 @@
+﻿@page "/"
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<auto-price is-https="@HttpContext.Request.IsHttps" make="chevy"></auto-price>
+<hr />
+
+<my-customer></my-customer>
+
+<form method="POST" id="mahdi">
+    <h3>Add more:</h3>
+    <br />
+    <div class="row">
+        <label asp-for="@Model.Person.Name" class="col-md-4">enter a name:</label>
+        <label asp-for="@Model.Person.Family" class="col-md-4">enter a family:</label>
+        <label class="col-md-4"></label>
+        <input class="col-md-4 form-control" asp-for="@Model.Person.Name" placeholder="name" />
+        <input class="col-md-4 form-control" asp-for="@Model.Person.Family" placeholder="family" />
+        <button class="col-md-4 btn btn-success" type="submit">send</button>
+    </div>
+</form>

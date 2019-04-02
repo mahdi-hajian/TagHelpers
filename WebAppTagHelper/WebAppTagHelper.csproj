@@ -5,10 +5,6 @@
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Content Remove="wwwroot\Template\HTMLPage1.html" />
-  </ItemGroup>
-
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="1.60.6" />
@@ -20,11 +16,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TagHelpersLib\TagHelpersLib.csproj" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <None Include="wwwroot\Template\HTMLPage1.html" />
   </ItemGroup>
 
 </Project>

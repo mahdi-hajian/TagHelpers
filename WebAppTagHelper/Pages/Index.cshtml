@@ -4,8 +4,23 @@
     ViewData["Title"] = "Home page";
 }
 
-<client-my-admin number="7"></client-my-admin>
+<my-admin number="7"></my-admin>
 <br />
-<client-my-customer number="7"></client-my-customer>
+<auto-price model-name="camero" make="chevy"></auto-price>
 <br />
-<client-auto-price model-name="camero" make="chevy"></client-auto-price>
+@foreach (var item in Model.Persons)
+{
+<my-customer person="@item"></my-customer>
+}
+<hr />
+<form method="POST" id="mahdi">
+    @*@Html.AntiForgeryToken()*@
+    <input asp-for="@Model.Person.Name" placeholder="name"/>
+    <input asp-for="@Model.Person.Family" placeholder="family" />
+    <br />
+    <button type="submit">send</button>
+</form>
+
+<script>
+    //console.log($("#mahdi").serialize())
+</script>

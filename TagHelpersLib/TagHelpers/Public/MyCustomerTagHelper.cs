@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Razor.Runtime.TagHelpers;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using TagHelpersLib.model;
 
 namespace TagHelpersLib.TagHelpers.Public
 {
@@ -11,10 +13,14 @@ namespace TagHelpersLib.TagHelpers.Public
     [HtmlTargetElement("my-customer")]
     public class MyCustomerTagHelper : TagHelper
     {
-        public int number { get; set; }
-        public override void Process(TagHelperContext context, TagHelperOutput output)
+        public person person { get; set; }
+        public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
-            output.Content.SetHtmlContent("baaaah salam mahdi shomare: "+ number);
+            string path = @"E:\MyProject\WebAppTagHelper\WebAppTagHelper\wwwroot\Template\HTMLPage1.html";
+            StreamReader streamReader = new StreamReader(path);
+            string content = await streamReader.ReadToEndAsync();
+            content = content.Replace("[name]", person.Name).Replace("[family]",person.Family);
+            output.Content.SetHtmlContent(content);
         }
     }
 }

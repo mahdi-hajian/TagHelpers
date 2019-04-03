@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.329
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppTagHelper", "WebAppTagHelper\WebAppTagHelper.csproj", "{2CF9D065-5614-471E-ACE2-B77C200AF8FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppTagHelper", "WebAppTagHelper\WebAppTagHelper.csproj", "{2CF9D065-5614-471E-ACE2-B77C200AF8FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagHelpersLib", "TagHelpersLib\TagHelpersLib.csproj", "{F9FAFBFF-32C3-42A4-A7B9-24298D63858D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TagHelpersLib", "TagHelpersLib\TagHelpersLib.csproj", "{F9FAFBFF-32C3-42A4-A7B9-24298D63858D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

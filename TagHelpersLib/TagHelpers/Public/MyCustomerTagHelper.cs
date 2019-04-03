@@ -21,7 +21,8 @@ namespace TagHelpersLib.TagHelpers.Public
 
             // find a attribute
             var AttributesId = output.Attributes.Where(c => c.Name == "id" && c.Value.ToString() == "CustomerId").FirstOrDefault();
-            // remove a attribute
+#pragma warning restore CS1030 // #warning directive
+                              // remove a attribute
             if (AttributesId != null)
                 output.Attributes.Remove(AttributesId);
 

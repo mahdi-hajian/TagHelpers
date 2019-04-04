@@ -17,7 +17,8 @@ namespace WebAppTagHelper.Pages.Home
         [BindProperty]
         public person Person { get; set; }
 
-        readonly string Connection = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Dapper_test";
+        readonly string Connection = @"Data Source=192.168.1.4,1433;User ID=sa;Password=yourStrong(!)Password;Initial Catalog=Dapper_test";
+        //readonly string Connection = @"Data Source=MAHDI-PC;User ID=sa;Password=21m./;Initial Catalog=Dapper_test";
 
         public void OnGet()
         {

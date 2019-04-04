@@ -21,8 +21,8 @@ namespace TagHelpersLib.TagHelpers.Public
 
             // find a attribute
             var AttributesId = output.Attributes.Where(c => c.Name == "id" && c.Value.ToString() == "CustomerId").FirstOrDefault();
-#pragma warning restore CS1030 // #warning directive
-                              // remove a attribute
+
+            // remove a attribute
             if (AttributesId != null)
                 output.Attributes.Remove(AttributesId);
 
@@ -58,7 +58,8 @@ namespace TagHelpersLib.TagHelpers.Public
         public async Task<List<person>> GetPersonsAsync()
         {
             var Persons = new List<person>();
-            using (System.Data.IDbConnection db = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Dapper_test"))
+            //using (System.Data.IDbConnection db = new SqlConnection(@"Data Source=MAHDI-PC;User ID=sa;Password=21m./;Initial Catalog=Dapper_test"))
+            using (System.Data.IDbConnection db = new SqlConnection(@"Data Source=192.168.1.4,1433;User ID=sa;Password=yourStrong(!)Password;Initial Catalog=Dapper_test"))
             {
                 var data = await db.QueryAsync<person>("select * from Person");
                 Persons = data.ToList();

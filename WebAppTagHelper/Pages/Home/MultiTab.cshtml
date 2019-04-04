@@ -1,4 +1,12 @@
 ﻿@page "/MultiTab"
 @model WebAppTagHelper.Pages.Home.MultiTab
 @{
+    ViewData["Title"] = "multi tab";
 }
+
+<tab Active-page="Sessions">
+    <tab-item title="Home"></tab-item>
+    <tab-item title="Speakers"></tab-item>
+    <tab-item title="Sessions"></tab-item>
+    <tab-item title="Registraion"></tab-item>
+</tab>
